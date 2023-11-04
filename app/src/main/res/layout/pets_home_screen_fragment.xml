@@ -5,7 +5,7 @@
     <data>
         <variable
             name="PetsAdapter"
-            type="com.example.test.petsHomeScreen.adapters.PetsAdapter" />
+            type="com.example.softxpert.petsHomeScreen.adapters.PetsAdapter" />
 
     </data>
 

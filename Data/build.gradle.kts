@@ -27,11 +27,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
 }
 kapt {
@@ -48,4 +48,13 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation(libs.hilt)
     kapt(libs.hiltcompiler)
+    implementation(libs.retrofit)
+    implementation(libs.room.runtime)
+    implementation(libs.gson)
+    implementation(libs.converter.gson)
+    kapt(libs.room.compiler)
+    implementation(libs.datastore.preferences)
+    implementation(libs.room.ktx)
+    implementation(libs.room.testing)
+    implementation(project(mapOf("path" to ":Domain")))
 }
