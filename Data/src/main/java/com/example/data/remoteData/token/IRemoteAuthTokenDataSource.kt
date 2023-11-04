@@ -7,6 +7,6 @@ interface IRemoteAuthTokenDataSource {
 
 
 
-    suspend fun getToken(): Response<AuthTokenResponse>
+    suspend fun getToken(): Response<AuthTokenResponse?>
 
 }

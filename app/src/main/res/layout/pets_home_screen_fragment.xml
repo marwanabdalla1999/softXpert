@@ -19,15 +19,26 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title" />
+
             <TextView
                 android:id="@+id/title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="#03A9F4"
+                android:background="@color/white"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="@string/pets"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textSize="26sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -52,6 +63,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
+                        app:cardBackgroundColor="#FFFFFF"
                         app:cardCornerRadius="5dp"
                         app:cardElevation="5dp">
 
@@ -60,7 +72,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="@string/all" />
+                            android:text="@string/all"
+                            android:textColor="#000000" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -68,6 +81,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
+                        app:cardBackgroundColor="#FFFFFF"
                         app:cardCornerRadius="5dp"
                         app:cardElevation="5dp">
 
@@ -76,7 +90,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="@string/cats" />
+                            android:text="@string/cats"
+                            android:textColor="#000000" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -84,6 +99,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
+                        app:cardBackgroundColor="#FFFFFF"
                         app:cardCornerRadius="5dp"
                         app:cardElevation="5dp">
 
@@ -92,7 +108,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Horse" />
+                            android:text="@string/horse"
+                            android:textColor="#000000" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -100,6 +117,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
+                        app:cardBackgroundColor="#FFFFFF"
                         app:cardCornerRadius="5dp"
                         app:cardElevation="5dp">
 
@@ -108,7 +126,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Bird" />
+                            android:text="@string/bird"
+                            android:textColor="#000000" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -116,6 +135,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
+                        app:cardBackgroundColor="#FFFFFF"
                         app:cardCornerRadius="5dp"
                         app:cardElevation="5dp">
 
@@ -124,7 +144,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Rabbit" />
+                            android:text="@string/rabbit"
+                            android:textColor="#000000" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -139,11 +160,11 @@
                 android:adapter="@{PetsAdapter}"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
-                tools:listitem="@layout/pet_item"
-                />
+                tools:listitem="@layout/pet_item" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

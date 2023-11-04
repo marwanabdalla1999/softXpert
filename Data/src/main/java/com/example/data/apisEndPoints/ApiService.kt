@@ -18,7 +18,7 @@ interface ApiService {
         @Field("grant_type") grantType: String,
         @Field("client_id") clientId: String,
         @Field("client_secret") clientSecret: String
-    ):Response<AuthTokenResponse>
+    ):Response<AuthTokenResponse?>
 
 
     @GET("/v2/animals")
@@ -26,5 +26,5 @@ interface ApiService {
         @Header("Authorization") token: String,
         @Query("page") page: Int,
         @Query("type") type: String
-    ): Response<PetsResponse>
+    ): Response<PetsResponse?>
 }

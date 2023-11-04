@@ -1,16 +1,16 @@
 package com.example.domain.models
 
-data class Pets (
+import java.io.Serializable
+
+data class Pets(
 
     val id: Int,
-    val name: String,
-    val gender: String,
-    val size: String,
-    val type:String,
-    val primaryColor: String,
-    val smallPhoto: String,
-    val mediumPhoto: String,
-    val city: String,
-    val state: String,
-    val country: String
-)
+    val name: String = "NA",
+    val gender: String = "NA",
+    val size: String = "NA",
+    val type: String = "NA",
+    val primaryColor: String? = "NA",
+    val smallPhoto: String?,
+    val mediumPhoto: String?,
+    val address: String = "NA"
+) : Serializable

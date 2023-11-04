@@ -7,5 +7,5 @@ interface IRemotePetsDataSource {
 
 
 
-    suspend fun getPets(page: Int, type: String, token: String): Response<PetsResponse>
+    suspend fun getPets(page: Int, type: String, token: String): Response<PetsResponse?>
 }

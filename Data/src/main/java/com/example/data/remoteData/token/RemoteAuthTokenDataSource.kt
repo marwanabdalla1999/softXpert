@@ -8,7 +8,7 @@ import retrofit2.Response
 class RemoteAuthTokenDataSource (private val apiService: ApiService): IRemoteAuthTokenDataSource {
 
 
-    override suspend fun getToken(): Response<AuthTokenResponse> {
+    override suspend fun getToken(): Response<AuthTokenResponse?> {
 
 
         return apiService.getToken(

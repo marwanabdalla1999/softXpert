@@ -9,13 +9,29 @@ import com.example.softxpert.R
 import com.example.softxpert.databinding.PetItemBinding
 
 
-class PetsAdapter : RecyclerView.Adapter<PetsAdapter.ViewHolder>() {
-    private var petsList: List<Pets> = ArrayList()
+class PetsAdapter(private val onItemClickListener: OnItemClickListener) :
+    RecyclerView.Adapter<PetsAdapter.ViewHolder>() {
+     private var petsList: List<Pets> = ArrayList()
 
     fun setData(petsList: List<Pets>?) {
         if (petsList != null) {
             this.petsList = petsList
-            notifyItemRangeChanged(0, petsList.size)
+            notifyItemRangeChanged(0, this.petsList.size)
+
+        }
+
+    }
+
+
+    fun addData(petsList: List<Pets>?) {
+        if (petsList != null) {
+            val newPetsList = mutableListOf<Pets>()
+            newPetsList.addAll(this.petsList)
+            newPetsList.addAll(petsList)
+            val oldSize=this.petsList.size
+            this.petsList = newPetsList
+
+            notifyItemRangeChanged(oldSize, this.petsList.size)
 
         }
 
@@ -26,15 +42,15 @@ class PetsAdapter : RecyclerView.Adapter<PetsAdapter.ViewHolder>() {
         val binding: PetItemBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context), R.layout.pet_item, parent, false
         )
-        return ViewHolder(binding)
+        return ViewHolder(binding, onItemClickListener)
 
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.image=petsList[position].smallPhoto
-        holder.binding.name=petsList[position].name
-        holder.binding.type=petsList[position].type
-        holder.binding.gender=petsList[position].gender
+        holder.binding.image = petsList[position].smallPhoto
+        holder.binding.name = petsList[position].name
+        holder.binding.type = petsList[position].type
+        holder.binding.gender = petsList[position].gender
 
 
     }
@@ -42,8 +58,22 @@ class PetsAdapter : RecyclerView.Adapter<PetsAdapter.ViewHolder>() {
     override fun getItemCount(): Int {
         return petsList.size
     }
+     fun getItemsList(): List<Pets> {
+        return petsList
+    }
 
-    class ViewHolder(val binding: PetItemBinding) : RecyclerView.ViewHolder(binding.root)
+    class ViewHolder(
+        val binding: PetItemBinding,
+
+        private val onItemClickListener: OnItemClickListener,
+    ) :
+        RecyclerView.ViewHolder(binding.root) {
+        init {
+            binding.root.setOnClickListener {
+                onItemClickListener.onItemClicked(adapterPosition)
+            }
+        }
+    }
 
 
 }
