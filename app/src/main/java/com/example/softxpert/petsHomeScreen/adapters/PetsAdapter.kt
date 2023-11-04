@@ -21,9 +21,7 @@ class PetsAdapter(private val onItemClickListener: OnItemClickListener) :
         }
 
     }
-    fun getList(): List<Pets> {
-        return petsList
-    }
+
 
     fun addData(petsList: List<Pets>?) {
         if (petsList != null) {
