@@ -58,6 +58,8 @@ dependencies {
     implementation(libs.navigationfragment)
     implementation(libs.viewModel)
     implementation(libs.coroutines)
+    testImplementation (libs.kotlinx.coroutines.test)
+
     implementation(libs.glide)
     implementation (project(":Domain"))
     implementation (project(":Data"))

@@ -8,24 +8,23 @@ class PetsUseCase(
     private val petsRepository: IPetsRepository, private val authTokenRepo: IAuthTokenRepository
 ) : IPetsUseCase {
 
-    private var page=1
     override suspend fun getPets(type: String): PetsApiStates {
 
         val token = authTokenRepo.getToken()
-        page=1
-        return petsRepository.getPets(page, type, token)
+
+        return petsRepository.getPets(1, type, token)
 
 
     }
 
-    override suspend fun loadMorePets(pagesLimit:Int,type: String): PetsApiStates {
+    override suspend fun loadMorePets(currentPage:Int,pagesLimit:Int,type: String): PetsApiStates {
+        val token = authTokenRepo.getToken()
 
-        if (page+1<=pagesLimit) {
-            page++
+        if (currentPage+1<=pagesLimit) {
+            return petsRepository.getPets(currentPage+1, type, token)
         }
 
-        val token = authTokenRepo.getToken()
-        return petsRepository.getPets(page, type, token)
+        return petsRepository.getPets(currentPage, type, token)
 
     }
 

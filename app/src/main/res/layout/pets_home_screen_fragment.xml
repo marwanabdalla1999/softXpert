@@ -52,6 +52,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
+                        app:cardBackgroundColor="#FFFFFF"
                         app:cardCornerRadius="5dp"
                         app:cardElevation="5dp">
 
@@ -60,7 +61,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="@string/all" />
+                            android:text="@string/all"
+                            android:textColor="#000000" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -68,6 +70,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
+                        app:cardBackgroundColor="#FFFFFF"
                         app:cardCornerRadius="5dp"
                         app:cardElevation="5dp">
 
@@ -76,7 +79,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="@string/cats" />
+                            android:text="@string/cats"
+                            android:textColor="#000000" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -84,6 +88,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
+                        app:cardBackgroundColor="#FFFFFF"
                         app:cardCornerRadius="5dp"
                         app:cardElevation="5dp">
 
@@ -92,7 +97,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Horse" />
+                            android:text="Horse"
+                            android:textColor="#000000" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -100,6 +106,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
+                        app:cardBackgroundColor="#FFFFFF"
                         app:cardCornerRadius="5dp"
                         app:cardElevation="5dp">
 
@@ -108,7 +115,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Bird" />
+                            android:text="Bird"
+                            android:textColor="#000000" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -116,6 +124,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
+                        app:cardBackgroundColor="#FFFFFF"
                         app:cardCornerRadius="5dp"
                         app:cardElevation="5dp">
 
@@ -124,7 +133,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Rabbit" />
+                            android:text="Rabbit"
+                            android:textColor="#000000" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -139,11 +149,11 @@
                 android:adapter="@{PetsAdapter}"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
-                tools:listitem="@layout/pet_item"
-                />
+                tools:listitem="@layout/pet_item" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

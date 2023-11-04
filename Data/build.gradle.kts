@@ -46,6 +46,9 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation(libs.coroutines)
+    testImplementation (libs.kotlinx.coroutines.test)
+
     implementation(libs.hilt)
     kapt(libs.hiltcompiler)
     implementation(libs.retrofit)
