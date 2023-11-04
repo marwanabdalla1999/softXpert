@@ -11,6 +11,10 @@ interface Dao {
     @Query("SELECT * FROM pets")
     suspend fun getAllPets(): List<PetsEntity>
 
+
+    @Query("SELECT * FROM pets WHERE type=:type")
+    suspend fun getAllPetsOfOneType(type:String): List<PetsEntity>?
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPets(pets: List<PetsEntity>)
 

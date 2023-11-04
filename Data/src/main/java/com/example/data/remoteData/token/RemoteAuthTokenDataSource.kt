@@ -3,6 +3,7 @@ package com.example.data.remoteData.token
 
 import com.example.data.apisEndPoints.ApiService
 import com.example.data.responses.auth.AuthTokenResponse
+import com.example.data.utils.Constants
 import retrofit2.Response
 
 class RemoteAuthTokenDataSource (private val apiService: ApiService): IRemoteAuthTokenDataSource {
@@ -12,9 +13,9 @@ class RemoteAuthTokenDataSource (private val apiService: ApiService): IRemoteAut
 
 
         return apiService.getToken(
-            "client_credentials",
-            "8dwk3kbGjEoPvdDb08zReTo2oPIWPRJS5tUuayMaJ57qLWlBEO",
-            "fgCvRsYqsVXDt8uThQW1IUhL9YSWPrecGarVyTzG"
+            Constants.Credentials.GRANT_TYPE,
+            Constants.Credentials.CLIENT_ID,
+            Constants.Credentials.CLIENT_SECRET
         )
 
     }
