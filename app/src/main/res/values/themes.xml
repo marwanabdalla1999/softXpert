@@ -3,6 +3,10 @@
     <style name="Base.Theme.Softxpert" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimaryVariant">#FFFFFF</item>
+        <item name="colorPrimary">#FFFFFF</item>
+        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="Theme.Softxpert" parent="Base.Theme.Softxpert" />

@@ -15,9 +15,8 @@ data class PetsEntity (
     val primaryColor: String?,
     val smallPhoto: String?,
     val mediumPhoto: String?,
-    val city: String,
-    val state: String,
-    val country: String,
+    val address: String,
+
 
 
     )

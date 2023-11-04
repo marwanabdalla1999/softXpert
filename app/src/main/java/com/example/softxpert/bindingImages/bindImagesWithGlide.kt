@@ -12,7 +12,7 @@ import com.example.softxpert.R
 fun loadImage(view: ImageView, image: String?) {
     if (image != null) {
 
-        Glide.with(view.context).load(image).placeholder(R.drawable.pets_place_holder)
+        Glide.with(view.context).load(image).placeholder(R.drawable.placeholder)
             .diskCacheStrategy(
                 DiskCacheStrategy.ALL
             ).into(view)

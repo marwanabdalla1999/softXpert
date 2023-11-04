@@ -6,5 +6,16 @@
     <fragment
         android:id="@+id/petsHomeScreen"
         android:name="com.example.softxpert.petsHomeScreen.fragments.PetsHomeScreen"
-        android:label="PetsHomeScreen" />
+        android:label="PetsHomeScreen" >
+        <action
+            android:id="@+id/action_petsHomeScreen_to_petDetails"
+            app:destination="@id/petDetails" />
+        <argument
+            android:name="PetDetailsModel"
+            app:argType="com.example.domain.models.Pets" />
+    </fragment>
+    <fragment
+        android:id="@+id/petDetails"
+        android:name="com.example.softxpert.PetDetailsScreen.PetDetails"
+        android:label="PetDetails" />
 </navigation>

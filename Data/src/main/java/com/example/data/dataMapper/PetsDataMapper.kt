@@ -21,9 +21,7 @@ object PetsDataMapper {
                 pet.colors?.primary,
                 pet.primary_photo_cropped?.small,
                 pet.primary_photo_cropped?.medium,
-                pet.contact.address.city,
-                pet.contact.address.state,
-                pet.contact.address.country
+                pet.contact.address.city + ", " + pet.contact.address.state + ", " + pet.contact.address.country
             )
             petsList.add(entity)
         }
@@ -50,9 +48,7 @@ object PetsDataMapper {
                 pet.colors?.primary,
                 pet.primary_photo_cropped?.small,
                 pet.primary_photo_cropped?.medium,
-                pet.contact.address.city,
-                pet.contact.address.state,
-                pet.contact.address.country
+                pet.contact.address.city + ", " + pet.contact.address.state + ", " + pet.contact.address.country
 
             )
             petsList.add(model)
@@ -62,7 +58,7 @@ object PetsDataMapper {
     }
 
     fun fromPetsDataBaseEntityToPetsModel(petsEntity: List<PetsEntity>): PetsModel {
-        val pagination=Pagination(0,0,0,0)
+        val pagination = Pagination(0, 0, 0, 0)
         val petsList = mutableListOf<Pets>()
         for (pet in petsEntity) {
             val model = Pets(
@@ -74,9 +70,7 @@ object PetsDataMapper {
                 pet.primaryColor,
                 pet.smallPhoto,
                 pet.mediumPhoto,
-                pet.city,
-                pet.state,
-                pet.country
+                pet.address
             )
             petsList.add(model)
         }

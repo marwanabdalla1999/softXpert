@@ -7,7 +7,10 @@ class Constants {
         const val BASE_URL = PRIVATE_BASE_URL
     }
     object Errors{
-        const val UNKNOWN_ERROR="there is problem in internet connection or you are not authorized"
+        const val OFFLINE_MODE="You are offline try again to update pets"
+
+        const val UNKNOWN_ERROR="there is a problem in your internet connection please try again"
+
     }
 
 

@@ -9,9 +9,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.apiStates.PetsApiStates
+import com.example.domain.models.Pets
+import com.example.softxpert.R
 import com.example.softxpert.databinding.PetsHomeScreenFragmentBinding
 import com.example.softxpert.petsHomeScreen.adapters.OnItemClickListener
 import com.example.softxpert.petsHomeScreen.adapters.PetsAdapter
@@ -28,10 +30,10 @@ class PetsHomeScreen : Fragment(), View.OnClickListener ,OnItemClickListener{
     private val petsViewModel: PetsViewModel by viewModels()
     private lateinit var adapter: PetsAdapter
     private var lastPage = 1
-    private var currentpage = 1;
+    private var currentPage = 1
     private var loading = false
     private lateinit var prevTypeView: TextView
-
+    private  var petModels:List<Pets>?=null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -58,9 +60,10 @@ class PetsHomeScreen : Fragment(), View.OnClickListener ,OnItemClickListener{
                 loading = false
                 when (val result = it) {
                     is PetsApiStates.Success -> {
-                        adapter.addData(result.data?.pets)
+                        petModels=result.data?.pets
+                        adapter.addData(petModels)
                         lastPage = result.data?.pagination?.total_pages ?: 1
-                        currentpage = result.data?.pagination?.current_page ?: 1
+                        currentPage = result.data?.pagination?.current_page ?: 1
                     }
 
                     is PetsApiStates.Failure -> {
@@ -98,7 +101,7 @@ class PetsHomeScreen : Fragment(), View.OnClickListener ,OnItemClickListener{
 
     private fun loadMorePets() {
 
-        petsViewModel.loadMorePets(currentpage, lastPage, currentType)
+        petsViewModel.loadMorePets(currentPage, lastPage, currentType)
 
     }
 
@@ -108,12 +111,18 @@ class PetsHomeScreen : Fragment(), View.OnClickListener ,OnItemClickListener{
             petsViewModel.pets.collect {
                 when (val result = it) {
                     is PetsApiStates.Success -> {
+                        binding.progressBar.visibility=View.GONE
+                        binding.petsList.visibility=View.VISIBLE
+
                         adapter.setData(result.data?.pets)
                         lastPage = result.data?.pagination?.total_pages ?: 1
-                        currentpage = result.data?.pagination?.current_page ?: 1
+                        currentPage = result.data?.pagination?.current_page ?: 1
                     }
 
                     is PetsApiStates.Failure -> {
+                        binding.progressBar.visibility=View.GONE
+                        binding.petsList.visibility=View.VISIBLE
+
                         showSnackBar(binding.root, result.error.message, loadPets)
                         adapter.setData(result.offlineData?.pets)
 
@@ -121,10 +130,14 @@ class PetsHomeScreen : Fragment(), View.OnClickListener ,OnItemClickListener{
                     }
 
                     is PetsApiStates.Idle -> {
+                        binding.progressBar.visibility=View.GONE
+                        binding.petsList.visibility=View.VISIBLE
 
                     }
 
                     is PetsApiStates.Loading -> {
+                        binding.progressBar.visibility=View.VISIBLE
+                        binding.petsList.visibility=View.GONE
 
                     }
                 }
@@ -198,9 +211,13 @@ class PetsHomeScreen : Fragment(), View.OnClickListener ,OnItemClickListener{
         }
     }
 
-    override fun onItemClicked(position: Int) {
+    override fun onItemClicked(item: Int) {
 
-
+        val bundle = Bundle().apply {
+            putSerializable("pet",adapter.getItemsList()[item])
+        }
+        Navigation.findNavController(binding.petsList)
+            .navigate(R.id.action_petsHomeScreen_to_petDetails, bundle)
 
     }
 
