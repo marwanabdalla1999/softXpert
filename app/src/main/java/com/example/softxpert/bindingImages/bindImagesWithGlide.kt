@@ -1,6 +1,5 @@
 package com.example.softxpert.bindingImages
 
-import android.graphics.Bitmap
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide

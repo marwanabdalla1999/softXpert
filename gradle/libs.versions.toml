@@ -1,4 +1,5 @@
 [versions]
+#noinspection GradleDependency
 agp = "8.2.0-alpha15"
 kotlin = "1.9.0"
 core-ktx = "1.12.0"
@@ -10,6 +11,7 @@ material = "1.10.0"
 constraintlayout = "2.1.4"
 hilt = "2.48"
 hilt-compiler = "2.48"
+#noinspection GradleDependency
 navigationfragment = "2.7.4"
 viewmodel= "2.6.2"
 coroutines = "1.7.3"
