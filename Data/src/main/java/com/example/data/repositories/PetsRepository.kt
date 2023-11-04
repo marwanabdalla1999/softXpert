@@ -24,7 +24,7 @@ class PetsRepository(
 
     private suspend fun execute(page: Int, type: String, token: String?): PetsApiStates {
         if (token == null) {
-            return getOfflineData()
+            return getOfflineData(type)
         } else {
             if (networkListener.getConnectivity()) {
                 val response = remotePetsData.getPets(page, type, token)
@@ -34,7 +34,7 @@ class PetsRepository(
                 }
 
             }
-            return getOfflineData()
+            return getOfflineData(type)
 
 
         }
@@ -54,8 +54,12 @@ class PetsRepository(
 
     }
 
-    private suspend fun getOfflineData(): PetsApiStates {
-        val data = offlineDataBase.Dao().getAllPets()
+    private suspend fun getOfflineData(type:String): PetsApiStates {
+        val data = if (type==""){
+            offlineDataBase.Dao().getAllPets()
+        } else{
+            offlineDataBase.Dao().getAllPetsOfOneType(type)
+        }
         val petsModel = data.let { PetsDataMapper.fromPetsDataBaseEntityToPetsModel(it) }
         return PetsApiStates.Failure(
             Throwable(Constants.Errors.OFFLINE_MODE), petsModel
