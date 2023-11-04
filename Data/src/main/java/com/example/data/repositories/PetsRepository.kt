@@ -60,6 +60,11 @@ class PetsRepository(
         } else{
             offlineDataBase.Dao().getAllPetsOfOneType(type)
         }
+        if (data==null){
+            return PetsApiStates.Failure(
+                Throwable(Constants.Errors.OFFLINE_MODE), null
+            )
+        }
         val petsModel = data.let { PetsDataMapper.fromPetsDataBaseEntityToPetsModel(it) }
         return PetsApiStates.Failure(
             Throwable(Constants.Errors.OFFLINE_MODE), petsModel
