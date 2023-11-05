@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.domain.models.Pets
 import com.example.softxpert.R
 import com.example.softxpert.databinding.PetItemBinding
@@ -49,8 +50,9 @@ class PetsAdapter(private val onItemClickListener: OnItemClickListener) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.image = petsList[position].smallPhoto
-        holder.binding.image = petsList[position].smallPhoto
+        Glide.with(holder.itemView).load(petsList[position].smallPhoto).placeholder(R.drawable.placeholder).into(holder.binding.petPhoto)
+        holder.binding.petPhoto
+      //  holder.binding.image = petsList[position].smallPhoto
         holder.binding.name = petsList[position].name
         holder.binding.type = petsList[position].type
         holder.binding.gender = petsList[position].gender
