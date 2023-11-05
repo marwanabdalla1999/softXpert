@@ -16,6 +16,6 @@
     </fragment>
     <fragment
         android:id="@+id/petDetails"
-        android:name="com.example.softxpert.PetDetailsScreen.PetDetails"
+        android:name="com.example.softxpert.petDetailsScreen.fragments.PetDetails"
         android:label="PetDetails" />
 </navigation>

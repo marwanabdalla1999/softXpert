@@ -16,6 +16,7 @@ data class PetsEntity (
     val smallPhoto: String?,
     val mediumPhoto: String?,
     val address: String,
+    val url : String?
 
 
 
