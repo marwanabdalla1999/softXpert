@@ -6,5 +6,5 @@ interface IPetsUseCase {
 
 
    suspend fun getPets(type:String): PetsApiStates
-   suspend fun loadMorePets(currentPage:Int,pagesLimit: Int, type: String): PetsApiStates
+   suspend fun loadMorePets(currentPage:Int,pagesLimit: Int, type: String): PetsApiStates?
 }

@@ -73,7 +73,8 @@
                             android:layout_height="wrap_content"
                             android:padding="10dp"
                             android:text="@string/all"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:textSize="16sp" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -91,7 +92,8 @@
                             android:layout_height="wrap_content"
                             android:padding="10dp"
                             android:text="@string/cats"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:textSize="16sp" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -109,7 +111,8 @@
                             android:layout_height="wrap_content"
                             android:padding="10dp"
                             android:text="@string/horse"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:textSize="16sp" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -127,7 +130,8 @@
                             android:layout_height="wrap_content"
                             android:padding="10dp"
                             android:text="@string/bird"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:textSize="16sp" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -145,7 +149,8 @@
                             android:layout_height="wrap_content"
                             android:padding="10dp"
                             android:text="@string/rabbit"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:textSize="16sp" />
 
                     </androidx.cardview.widget.CardView>
 
