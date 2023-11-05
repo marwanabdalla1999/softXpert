@@ -4,9 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
-            name="image"
-            type="String" />
-        <variable
             name="name"
             type="String" />
         <variable
@@ -31,7 +28,6 @@
 
             <ImageView
                 android:id="@+id/pet_photo"
-                imageUrl="@{image}"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="#4A000000"
@@ -40,7 +36,6 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/placeholder"
                 tools:ignore="ImageContrastCheck" />
 
             <TextView
