@@ -50,6 +50,7 @@ class PetsAdapter(private val onItemClickListener: OnItemClickListener) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.image = petsList[position].smallPhoto
+        holder.binding.image = petsList[position].smallPhoto
         holder.binding.name = petsList[position].name
         holder.binding.type = petsList[position].type
         holder.binding.gender = petsList[position].gender

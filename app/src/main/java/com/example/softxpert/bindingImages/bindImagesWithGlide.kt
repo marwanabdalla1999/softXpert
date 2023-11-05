@@ -9,6 +9,7 @@ import com.example.softxpert.R
 //Bind Bitmap Images to  Recipes Items
 @BindingAdapter("imageUrl")
 fun loadImage(view: ImageView, image: String?) {
+    view.setImageResource(R.drawable.placeholder)
     if (image != null) {
 
         Glide.with(view.context).load(image)
