@@ -18,4 +18,5 @@
         android:id="@+id/petDetails"
         android:name="com.example.softxpert.petDetailsScreen.fragments.PetDetails"
         android:label="PetDetails" />
+
 </navigation>
