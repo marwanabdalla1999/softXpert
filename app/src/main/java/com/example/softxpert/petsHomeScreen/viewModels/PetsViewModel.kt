@@ -39,9 +39,10 @@ class PetsViewModel@Inject constructor(private val getPets:IPetsUseCase) :ViewMo
     fun loadMorePets(currentPage:Int,pagesLimit:Int,type:String){
 
         viewModelScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
-
-            _morePets.value = getPets.loadMorePets(currentPage,pagesLimit,type)
-
+            val data=getPets.loadMorePets(currentPage,pagesLimit,type)
+            if (data!=null) {
+                _morePets.value = data
+            }
 
         }
 

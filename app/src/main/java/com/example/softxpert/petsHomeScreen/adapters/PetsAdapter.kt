@@ -1,5 +1,6 @@
 package com.example.softxpert.petsHomeScreen.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -13,10 +14,11 @@ class PetsAdapter(private val onItemClickListener: OnItemClickListener) :
     RecyclerView.Adapter<PetsAdapter.ViewHolder>() {
      private var petsList: List<Pets> = ArrayList()
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setData(petsList: List<Pets>?) {
         if (petsList != null) {
             this.petsList = petsList
-            notifyItemRangeChanged(0, this.petsList.size)
+           notifyDataSetChanged()
 
         }
 

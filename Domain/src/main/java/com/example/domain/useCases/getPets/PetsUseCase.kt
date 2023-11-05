@@ -17,14 +17,14 @@ class PetsUseCase(
 
     }
 
-    override suspend fun loadMorePets(currentPage:Int,pagesLimit:Int,type: String): PetsApiStates {
+    override suspend fun loadMorePets(currentPage:Int,pagesLimit:Int,type: String): PetsApiStates? {
         val token = authTokenRepo.getToken()
 
         if (currentPage+1<=pagesLimit) {
             return petsRepository.getPets(currentPage+1, type, token)
         }
 
-        return petsRepository.getPets(currentPage, type, token)
+        return null
 
     }
 
