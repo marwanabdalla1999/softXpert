@@ -22,6 +22,8 @@ object PetsDataMapper {
                 pet.primary_photo_cropped?.small,
                 pet.primary_photo_cropped?.medium,
                 pet.contact.address.city + ", " + pet.contact.address.state + ", " + pet.contact.address.country
+           ,
+                pet.url
             )
             petsList.add(entity)
         }
@@ -49,7 +51,8 @@ object PetsDataMapper {
                 pet.primary_photo_cropped?.small,
                 pet.primary_photo_cropped?.medium,
                 pet.contact.address.city + ", " + pet.contact.address.state + ", " + pet.contact.address.country
-
+,
+                pet.url
             )
             petsList.add(model)
         }
@@ -70,7 +73,8 @@ object PetsDataMapper {
                 pet.primaryColor,
                 pet.smallPhoto,
                 pet.mediumPhoto,
-                pet.address
+                pet.address,
+                pet.url
             )
             petsList.add(model)
         }

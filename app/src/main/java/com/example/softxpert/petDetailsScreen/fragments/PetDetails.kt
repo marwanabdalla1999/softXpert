@@ -1,4 +1,4 @@
-package com.example.softxpert.PetDetailsScreen
+package com.example.softxpert.petDetailsScreen.fragments
 
 import android.content.Intent
 import android.net.Uri
@@ -46,7 +46,7 @@ class PetDetails : Fragment() {
     private fun openWebsite() {
         binding.button.setOnClickListener {
             val i = Intent(Intent.ACTION_VIEW)
-            i.setData(Uri.parse("https://www.petfinder.com/"))
+            i.data = Uri.parse(pet?.url)
             startActivity(i)
         }
     }

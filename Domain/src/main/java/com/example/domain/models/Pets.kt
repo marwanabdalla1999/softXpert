@@ -12,5 +12,6 @@ data class Pets(
     val primaryColor: String? = "NA",
     val smallPhoto: String?,
     val mediumPhoto: String?,
-    val address: String = "NA"
+    val address: String = "NA",
+    val url:String?
 ) : Serializable
